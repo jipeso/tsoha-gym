@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kurssit</title>
+</head>    
+<body>
+{% if session.user_id %}
+    <h1>Kurssit</h1>
+    <ul>
+        {% for course in courses %}
+            <li>{{course.name}}</li>
+        {% endfor %}
+    </ul>   
+
+<p>Olet kirjautunut sisään.</p>
+<a href="/logout">Kirjaudu ulos</a>
+{% else %}
+<a href="/login">Kirjaudu sisään</a>
+{% endif %}
+
+</body>
+</html>

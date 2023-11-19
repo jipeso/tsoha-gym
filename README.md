@@ -21,8 +21,8 @@ Sovelluksen testaus:
 
 1. Kloonaa repositorio omalle koneelle ja siirry sen juurikansioon.
 2. Luo .env tiedosto ja määritä sen sisältö:
-     DATABASE_URL=<tietokannan-paikallinen-osoite>
-     SECRET_KEY=<salainen-avain>
+     DATABASE_URL=tietokannan-paikallinen-osoite
+     SECRET_KEY=salainen-avain
 3. Aktivoi virtuaaliympäristö venv ja asenna riippuvuudet komennolla pip install -r ./requirements.txt
 4. Määritä tietokannan skeema komennolla psql < schema.sql
 5. Käynnistä sovellus komennolla flask run

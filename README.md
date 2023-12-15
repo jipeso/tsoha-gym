@@ -13,10 +13,6 @@ Sovelluksen ominaisuuksia ovat:
   johon tulee kirjoittaa oikea vastaus.
 * Opettaja pystyy näkemään kurssistaan tilaston, keitä opiskelijoita on kurssilla ja mitkä kurssin tehtävät kukin on ratkonut.
 
-DONE: Sovelluksen runko ok kunnosssa, tietokantaan luotu tarvittavat taulut, kirjautuminen ja rekisteröinti toimii.
-
-TODO: Opettajan toiminnot, kurssien sivut ja tehtävät, tilasto tehtävistä, ulkoasu.
-
 Sovelluksen testaus:
 
 1. Kloonaa repositorio omalle koneelle ja siirry sen juurikansioon.

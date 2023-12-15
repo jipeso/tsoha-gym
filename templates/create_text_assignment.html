@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}Luo tehtävä{% endblock %}
+
+{% block content %}
+
+
+<form class="basic-form" action="/create_text_assignment/{{ course.id }}" method="post">
+    <h5><b>Luo uusi kysymys</b></h5>
+    <p>Syötä kysymys: </p>
+    <input type="text" name="question" required>
+
+    <p>Syötä oikea vastaus: </p>
+    <input type="text" name="answer" required> <br>
+
+    <input type="submit" value="Luo tehtävä">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+</form>
+
+
+{% endblock %}

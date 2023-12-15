@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}Kurssisivu - {{ course.name }}{% endblock %}
+
+{% block content %}
+
+    {% if session.user_id %}
+        <div class ="course-page-container">
+            <div class="course-info">
+                {% if course.name %}
+                    <h1><b>{{ course.name }}</b></h1>
+                {% endif %}
+                {% if course.description %}
+                    <p><b>Kurssin kuvaus:</b> {{ course.description }}</p>
+                {% endif %}
+
+                {% if session.user_role == "teacher" %}
+                    <a href="/edit_course/{{ course.id }}">Muokkaa kurssisivua</a>
+                {% endif %}
+            </div>
+
+            <ul class="flash-messages">
+                {% with messages = get_flashed_messages() %}
+                    {% for message in messages %}
+                        {% if 'oikein' in message %}
+                            <li class="flash-success">{{ message }}</li>
+                        {% elif 'väärin' in message %}
+                            <li class="flash-error">{{ message }}</li>
+                        {% endif %}
+                    {% endfor %}
+                {% endwith %}
+            </ul>
+
+            <hr>
+
+            <div class="course-section">
+                <h3><b>Kurssimateriaali</b></h3>
+                {% if materials %}
+                    {% for material in materials %}
+                        <div class="material">
+                            <h5>{{ material.title }}</h5>
+                            <p>{{ material.content }}</p>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <p>Ei kurssimateriaalia</p>
+                {% endif %}
+            </div>
+
+            <div class="course-section">
+                <h3><b>Tehtävät</b></h3>
+
+                {% if multiple_choices %}
+                    <div class="assignment-type">
+                        <h5>Monivalintatehtävät</h5>
+                        {% for assignment in multiple_choices %}
+                            <div class="assignment">
+                                <a href="/multiple_choice/{{ assignment.id }}">Tehtävä {{ loop.index }}</a>
+                                {% if assignment.id in user_correct_mcs %}
+                                    <p>Vastattu oikein</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+
+                {% if text_assignments %}
+                    <div class="assignment-type">
+                        <h5>Muut tehtävät</h5>
+                        {% for assignment in text_assignments %}
+                            <div class="assignment">
+                                <a href="/text_assignment/{{ assignment.id }}">Tehtävä {{ loop.index }}</a>
+                                {% if assignment.id in user_correct_tas %}
+                                    <p>Vastattu oikein</p>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <hr>
+
+            {% if session.user_role == "student" %}
+                <a href="/leave_course/{{ course.id }}" class="red-button">Poistu kurssilta</a>
+            {% else %}
+                <div class="course-participants">
+                    <h5><b>Kurssille osallistujat ja suoritetut tehtävät</b></h5>
+                    {% for student_id, username, total_assignments in students %}
+                        <div class="participant-info">
+                            <p>Id: {{ student_id }}, Tunnus: {{ username }}, Suoritetut tehtävät: {{ total_assignments }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    {% endif %}
+
+{% endblock %}

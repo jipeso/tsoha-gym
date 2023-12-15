@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{%block title%}Lisää materiaalia{%endblock%}
+
+{%block content%}
+<form class="basic-form" action="/add_material/{{course.id}}" method="post">
+    <h5><b>Lisää materiaalia kurssille: </b> {{course.name}}</h5>
+    <p>Lisää otsikko</p>
+    <input type="text" name="title"> <br>
+    <p>Lisää tekstiä:</p>
+    <textarea name="content" rows="4"></textarea> <br>
+    <input type="submit" value="Lisää materiaali kurssille">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+</form>
+
+{%endblock%}

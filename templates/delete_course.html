@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Poista kurssi
+{% endblock %}
+
+{% block content %}
+
+<form class="basic-form" action="/delete_course/{{ course.id }}" method="post" onsubmit="return confirmDelete()">
+    <h5><b>Olet poistamassa kurssia: {{ course.name }}</b></h5>
+    <p>Oletko varma, että haluat poistaa tämän kurssin?</p>
+    <input type="submit" value="Poista kurssi">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+</form>
+
+<script>
+    function confirmDelete() {
+        return confirm("Haluatko varmasti poistaa tämän kurssin?");
+    }
+</script>
+
+{% endblock %}

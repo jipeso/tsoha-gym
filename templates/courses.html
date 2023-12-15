@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Kurssit
+{% endblock %}
+
+{% block content %}
+    {% if session.user_id %}
+ 
+        {% if courses %}
+            <div class="course-list">
+                <h1><b>Kurssit</b></h1>
+                {% for course in courses %}
+                    <div class="basic-form">
+                        <h3>{{ course.name }}</h3>
+                        <p>Kurssin kuvaus: {{ course.description }}</p>
+
+                        {% if session.user_role == "teacher" %}
+                            <a href="/view_course/{{ course.id }}">Siirry kurssisivulle</a><br>
+                        {% endif %}
+
+                        {% if session.user_role == "student" %}
+                            {% if course.id not in user_course_ids %}
+                                <form action="/enroll/{{ course.id }}" method="post">
+                                    <input type="submit" value="Liity kurssille">
+                                    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+                                </form>
+                            {% else %}
+                                <a href ="/view_course/{{ course.id }}">Siirry kurssisivulle</a>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+        <h3>Ei kursseja saatavilla</h3>
+        {% endif %}
+
+        {% if session.user_role == "teacher" %}
+            <a href="/create_course">Luo uusi kurssi</a>
+        {% endif %}
+    {% endif %}
+{% endblock %}

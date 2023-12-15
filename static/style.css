@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5; 
+    color: #333; 
+}
+.course-page-container {
+    width: 80%; 
+    padding: 20px;
+    margin: auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+}
+a {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #333;
+    color: #333;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: #fff;
+}
+
+a:hover {
+    background-color: #4CAF50;
+    color: #333;
+}
+
+a.red-button {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #333;
+    color: #333;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+a.red-button:hover {
+    background-color: #ff4d4d;
+    color: #333;
+}
+
+form input[type="text"],
+form textarea {
+    width: 60%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.course-list {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.course-item {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+}
+
+.flash-messages li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.flash-success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.flash-error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+
+.app-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.app-content h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+.basic-form {
+    max-width: 650px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.course-info {
+    margin-bottom: 20px;
+}
+
+.course-info h1 {
+    font-size: 24px;
+}
+
+.course-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+
+.course-section {
+    margin-bottom: 30px;
+}
+
+.course-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.material h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.material p {
+    font-size: 16px;
+}
+
+.assignment-type {
+    margin-bottom: 20px;
+}
+
+.assignment-type h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+

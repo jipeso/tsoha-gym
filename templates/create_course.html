@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{%block title%}Luo kurssi{%endblock%}
+
+{%block content%}
+
+
+<form class="basic-form" action="/create_course" method="post">
+    <h5><b>Luo uusi kurssi</b></h5>
+    <p>Kurssin nimi: </p>
+    <input type="text" name="course_name" required>
+    
+    <p>Kurssin kuvaus:</p>
+    <textarea name="description" rows="4"></textarea> <br>
+    <input type="submit" value="Luo kurssi">
+    <input type="hidden" name="owner" value="{{session.username}}">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+</form>
+
+{%endblock%}

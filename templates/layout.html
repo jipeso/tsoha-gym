@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <title>{%block title%}{%endblock%}</title>
+
+</head>
+
+<body>
+    {%if session.user_id %}
+        <nav class="navbar navbar-expand-sm navbar-light">
+        <a class="navbar-brand" href="/">Aloitussivu</a>
+        <ul class="navbar-nav">
+            <li>
+            <a href="/courses">Kurssit</a>
+            </li>
+            <li>
+            <a href="/profile">Käyttäjä</a>
+            </li>
+            <li>
+            <a class="red-button" href="/logout">Kirjaudu ulos</a>
+            </li>
+        </ul>
+        </nav>
+    {% endif %}
+
+    {%block content%}{%endblock%}
+</body>
+
+</html>

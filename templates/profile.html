@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Profiili - {{ session.username }}
+{% endblock %}
+
+{% block content %}
+
+    {% if session.user_id %}
+        <div class="basic-form">
+            <p>Käyttäjänimi: {{ session.username }}</p>
+            <p>Käyttäjän id numero: {{ session.user_id }}</p>
+            <p>Käyttäjän rooli: {{ session.user_role}}</p>
+        </div>
+    {% endif %}
+
+{% endblock %}

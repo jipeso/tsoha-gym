@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Muokkaa kurssia - {{ course.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="basic-form">
+        <form action="/edit_course/{{ course.id }}" method="post">
+            <h5><b>Kurssin nimi:</b> {{ course.name }}</h5> <br>
+            <p>Muuta kurssin nimeä:</p>
+            <input type="text" name="course_name"><br>
+
+            <p>Muuta kurssin kuvausta:</p>
+            <textarea name="description" rows="3"></textarea><br>
+
+            <input type="submit" value="Tallenna kurssin muutokset">
+            <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+        </form>
+
+        <a href="/create_text_assignment/{{ course.id }}">Lisää tekstivastaus tehtävä</a>
+        <a href="/create_multiple_choice/{{ course.id }}">Lisää monivalinta tehtävä</a>
+        <a href="/add_material/{{ course.id }}">Lisää kurssille materiaalia</a>
+        <a href="/delete_course/{{ course.id }}" class="red-button">Poista kurssi</a>
+
+    </div>
+{% endblock %}

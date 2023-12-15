@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}Luo tehtävä{% endblock %}
+
+{% block content %}
+
+
+<form class="basic-form" action="/create_multiple_choice/{{ course.id }}" method="post">
+    <h5>Luo uusi monivalintatehtävä</h5>
+    <p>Kysymys: <br>
+    <input type="text" name="question" required></p>
+
+    <p>Oikea vastaus: <br>
+    <input type="text" name="correct_answer"required></p> 
+
+    <p>Vaihtoehto 1: <br>
+    <input type="text" name="choice" required></p>
+
+    <p>Vaihtoehto 2: <br>
+    <input type="text" name="choice" required></p>
+
+    <p>Vaihtoehto 3: <br>
+    <input type="text" name="choice"></p>
+
+    <p>Vaihtoehto 4: <br>
+    <input type="text" name="choice"></p>
+
+    <p>Vaihtoehto 5: <br>
+    <input type="text" name="choice"></p>
+    
+    <p>Vaihtoehto 6: <br>
+    <input type="text" name="choice"></p>
+    
+    <input type="submit" value="Luo tehtävä">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+</form>
+
+
+{% endblock %}

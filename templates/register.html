@@ -1,13 +1,21 @@
-<form action="/register" method="post">
-Tunnus: <input type="text" name="username">
-<p>
-Salasana: <input type="password" name="password1">
-<p>
-Salasana uudestaan: <input type="password" name="password2">
-<p>
-Oppilas <input type="radio" name="role" value="student"> 
-<p>
-Opettaja <input type="radio" name="role" value="teacher"> 
-<p>
-<input type="submit" value="Luo tunnus">
-</form> 
+{% extends "layout.html" %}
+
+{% block title %}Rekisteröidy{% endblock %}
+
+{% block content %}
+
+<form class="basic-form" action="/register" method="post">
+    Tunnus: <input type="text" name="username">
+    <p>
+    Salasana: <input type="password" name="password1">
+    <p>
+    Salasana uudestaan: <input type="password" name="password2">
+    <p>
+    Oppilas <input type="radio" name="role" value="student" required> 
+    <p>
+    Opettaja <input type="radio" name="role" value="teacher"> 
+    <p>
+    <input type="submit" value="Luo tunnus">
+</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{%block title%}Tehtävä{%endblock%}
+
+{%block content%}
+
+<form class="basic-form" action="/text_assignment/{{ assignment.id }}" method="post">
+
+    <p>Kysymys: {{ assignment.question }}</p> <br>
+    <p>Syötä vastaus:</p>
+    <input type="text" name="answer" required>
+    <input type="submit" value="Tarkista">
+    <input type="hidden" name="course_id" value="{{ assignment.course_id }}">
+    <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+
+</form>
+{%endblock%}
+
